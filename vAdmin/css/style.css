@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Neuton:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Neuton', serif;
+}
+
+/* definindo algumas cores (texto e background) de acordo com a paleta do site */
+.bg-p1 {
+    background-color: #FDCAE1;
+}
+
+.bg-p2 {
+    background-color: #E3B1C8;
+}
+
+.bg-p3 {
+    background-color: #C999AF;
+}
+
+.bg-p4 {
+    background-color: #FF6961;
+}
+
+
+.text-p1 {
+    color: #FDCAE1;
+}
+
+.text-p2 {
+    color: #E3B1C8;
+}
+
+.text-p3 {
+    color: #C999AF;
+}
+
+.text-p4 {
+    color: #FF6961;
+}
+/* fim das cores */
+
+.navIndex a {
+    color: white;
+}
+
+.btn-p1 {
+    border: 1px solid #FDCAE1;
+    background-color: #FDCAE1;
+    color: #C999AF;
+    padding: 5px 10px;
+    transition: 0.4s;
+}
+
+.btn-p1:hover {
+    border: 1px solid #FDCAE1;
+    background-color: #C999AF;
+    color: #FDCAE1;
+}
+
+.btn-p2 {
+    border: 1px solid #C999AF;
+    background-color: #C999AF;
+    color: #FDCAE1;
+    padding: 5px 10px;
+    transition: 0.4s;
+}
+
+.btn-p2:hover {
+    border: 1px solid #C999AF;
+    background-color: #FDCAE1;
+    color: #C999AF;
+}
+
+.imgArtista {
+    text-align: center;
+}
+
+.imgArtista img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #C999AF;
+    border-radius: 15px;
+}

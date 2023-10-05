@@ -1,0 +1,685 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Neuton', serif;
+}
+
+
+/* essa parte é para fazer o rodapé ficar no fim da página, independente de ter algum conteudo no meio */
+html,
+body {
+    height: 100%;
+}
+
+.body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#corpo {
+    flex: 1 1 auto;
+}
+
+.corp {
+    margin: auto;
+    height: 100%;
+}
+/* fim da parte */
+
+
+.loading {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 2;
+    background-color: #050404b4;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* PALETA DE CORES */
+/* 1: #FDCAE1 */
+/* 2: #E3B1C8 */
+/* 3: #C999AF */
+/* 4: #FF6961 */
+
+input:focus {
+    outline: none;
+}
+
+
+/* definindo algumas cores (texto e background) de acordo com a paleta do site */
+.bg-p1 {
+    background-color: #FDCAE1;
+}
+
+.bg-p2 {
+    background-color: #E3B1C8;
+}
+
+.bg-p3 {
+    background-color: #C999AF;
+}
+
+.bg-p4 {
+    background-color: #FF6961;
+}
+
+
+.text-p1 {
+    color: #FDCAE1;
+}
+
+.text-p2 {
+    color: #E3B1C8;
+}
+
+.text-p3 {
+    color: #C999AF;
+}
+
+.text-p4 {
+    color: #FF6961;
+}
+/* fim das cores */
+
+a {
+    text-decoration: none;
+}
+
+#navHome {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#navHome .row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+#navHome .row .col .row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+#navHome .row .col {
+    height: 100%;
+}
+
+#searchHome {
+    border: 3px solid #C999AF;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    width: 100%;
+    padding: 3px 0px 3px 15px;
+    font-size: 19px;
+}
+
+input[type=text]:focus {
+    outline: none;
+}
+
+#iconSearch {
+    border: 3px solid #C999AF;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    padding: 3px;
+    font-size: 20px;
+    width: 8%;
+    background-color: white;
+}
+
+.LogCad {
+    font-size: 25px;
+}
+
+.av {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logoLink {
+    width: 50%;
+}
+
+#logoLink img{
+    max-width: 100%;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li a {
+    color: white;
+    text-decoration: none;
+}
+
+.redes a {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.vr {
+    width: 1px;
+    border: none;
+    color: white;
+}
+
+.footLogo {
+    max-width: 80%;
+}
+
+.footLogo img {
+    width: 150px;
+    border-radius: 50%;
+}
+
+.sidebar {
+    width: 0;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    background-color: #FDCAE1;
+    transition: 0.5s;
+    overflow-x: hidden;
+    border-right: 1px solid #C999AF;
+}
+
+/* .btnClose {
+    border: none;
+    padding: 10px;
+    background-color: transparent;
+    font-size: 25px;
+}
+
+.btnClose:hover {
+    color: #FF6961;
+} */
+
+.btnMenu {
+    font-size: 35px;
+    border: none;
+    background-color: transparent;
+}
+
+.sidebar .btnClose {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 40px;
+    margin-left: 50px;
+    margin-top: 15px;
+    border: none;
+    background-color: transparent;
+}
+
+.sidebar .btnClose:hover {
+    color: #FF6961;
+}
+
+.sidebar .list-group {
+    text-align: center;
+    margin-top: 30%;
+}
+
+.list-group a {
+    transition: 0.2s;
+}
+
+.list-group a:hover {
+    color: #FF6961;
+}
+
+.sidebar .list-group hr {
+    color: #C999AF;
+    background-color: #C999AF;
+    width: 70%;
+    height: 4px;
+    margin: auto;
+}
+
+
+/* parte de produtos na pagina inicial */
+
+
+
+.imgProd {
+    max-width: 100%;
+    height: auto;
+}
+
+.imgProd img {
+    width: 100%;
+    height: auto;
+    border: 2px solid #C999AF;
+    border-radius: 15px;
+}
+
+.tituloProd {
+    display: flex;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.tituloProd a {
+    color: #C999AF;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.tituloProd a:hover {
+    color: #a97e92;
+}
+
+.tituloProd p {
+    flex: 1;
+}
+
+.tituloProd button {
+    width: 100%;
+    font-size: 22px;
+}
+
+.descProd {}
+
+.prods .row {
+    gap: 20px;
+    margin: 0 20px;
+}
+
+.prods .row .col {
+    justify-content: center;
+}
+
+.events {
+    max-width: 100%;
+    margin-top: 5px;
+}
+
+.swiper-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.swiper-slide {
+    padding: 5px;
+}
+
+.swiper-slide img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #C999AF;
+    border-radius: 15px;
+}
+
+.book-a-table {
+    padding: 15px;
+}
+
+.reservation-img img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #C999AF;
+    border-radius: 15px;
+}
+
+.reservation-form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.reservation-form button {
+    border: 2px solid #C999AF;
+    border-radius: 15px;
+    background-color: #FDCAE1;
+    color: #C999AF;
+    padding: 6px 26px;
+    font-weight: 700;
+    transition: 0.5s;
+}
+
+.reservation-form button:hover {
+    background-color: #C999AF;
+    color: #FDCAE1;
+}
+
+.form-control {
+    border: 2px solid #C999AF;
+    border-radius: 15px;
+    padding: 7px 15px;
+    font-size: 20px;
+}
+
+.formReserv {
+    width: 100%;
+}
+
+.avals {
+    max-width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.avals-item {
+    width: 80%;
+    background-color: #fdcae17a;
+    padding: 30px 20px;
+    border: 2px solid #C999AF;
+    border-radius: 15px;
+}
+
+.artistRow {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 0 10% 50px;
+}
+
+.artistCol {
+    margin: 0px auto;
+}
+
+.artistCol h3 {
+    padding-bottom: 2px;
+}
+
+.artistCol img {
+    max-width: 100%;
+    max-height: 100%;
+    border: 2px solid #C999AF;
+    border-radius: 15px;
+}
+
+.btnsCom {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.btnsCom button {
+    font-size: 20px;
+}
+
+.infoArtist {
+
+}
+
+.commRow {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding-bottom: 50px;
+}
+
+.commCol {
+    margin: 0px 5px;
+}
+
+.commCol img {
+    max-width: 100%;
+    max-height: 100%;
+    border: 2px solid #C999AF;
+    border-radius: 15px;
+    margin: 0 auto;
+}
+
+.avalRow {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+    gap: 30px;
+    padding-bottom: 50px;
+}
+
+.avalCol {
+    margin: 0 auto;
+}
+
+.botaoCom {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.botaoCom button {
+    width: 80%;
+    border: 2px solid #C999AF;
+    background-color: #FDCAE1;
+    font-size: 25px;
+    padding: 5px 0;
+    border-radius: 15px;
+    color: #C999AF;
+    transition: 0.4s;
+}
+
+.botaoCom button:hover {
+    background-color: #C999AF;
+    color: #FDCAE1;
+}
+
+.contCont {
+    width: 100%;
+    margin: 3px;
+    background-color: rgba(253, 202, 225, 0.8);
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.contCont2 textarea {
+    width: 100%;
+    border: 2px solid #C999AF;
+    background-color: white;
+    color: #C999AF;
+    border-radius: 15px;
+    font-size: 20px;
+    padding: 5px 20px;
+}
+
+.contRow {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.contCol {
+    flex-basis: 45%;
+    flex: auto;
+
+}
+
+.contCont input {
+    width: 100%;
+    border: 2px solid #C999AF;
+    background-color: white;
+    color: #C999AF;
+    border-radius: 15px;
+    font-size: 20px;
+    padding: 5px 20px;
+    margin-bottom: 15px;
+}
+
+.contBtn {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.contBtnSub {
+    width: 80%;
+    border: 2px solid #C999AF;
+    background-color: transparent;
+    font-size: 25px;
+    padding: 5px 0;
+    border-radius: 15px;
+    color: #C999AF;
+    transition: 0.4s;
+}
+
+.contBtnSub:hover {
+    background-color: #C999AF;
+    color: #FDCAE1;
+}
+
+.fazComCont {
+    width: 100%;
+}
+
+.fazCom {
+    max-width: 100%;
+    background-color: rgba(253, 202, 225, 0.8);
+    border-radius: 12px;
+    margin: 50px;
+    padding: 50px;
+}
+
+.fazComRow label {
+    width: 100%;
+}
+
+.fazComCard {
+    display: none;
+}
+
+.fazComRow {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.fazComCol {
+    flex-basis: 45%;
+    flex: auto;
+}
+
+.fazComCol2 {
+    flex-basis: 30%;
+}
+
+.fazComRow input[type='text'] {
+    width: 100%;
+    border: 2px solid #C999AF;
+    background-color: white;
+    color: #C999AF;
+    border-radius: 15px;
+    font-size: 20px;
+    padding: 5px 20px;
+    margin-bottom: 15px;
+}
+
+.fazComRow select {
+    width: 100%;
+    border: 2px solid #C999AF;
+    background-color: white;
+    color: #C999AF;
+    border-radius: 15px;
+    font-size: 20px;
+    padding: 5px 20px;
+    margin-bottom: 15px;
+}
+
+.fazComRow textarea {
+    width: 100%;
+    border: 2px solid #C999AF;
+    background-color: white;
+    color: #C999AF;
+    border-radius: 15px;
+    font-size: 20px;
+    padding: 5px 20px;
+}
+
+.spanRadio {
+    font-size: 20px;
+    margin: 0 15px 0 5px;
+}
+
+.btn-p1 {
+    border: 1px solid #FDCAE1;
+    background-color: #FDCAE1;
+    color: #C999AF;
+    padding: 5px 10px;
+    transition: 0.4s;
+}
+
+.btn-p1:hover {
+    border: 1px solid #FDCAE1;
+    background-color: #C999AF;
+    color: white;
+}
+
+.btn-p2 {
+    border: 1px solid #C999AF;
+    background-color: #C999AF;
+    color: #FDCAE1;
+    padding: 5px 10px;
+    transition: 0.4s;
+}
+
+.btn-p2:hover {
+    border: 1px solid #C999AF;
+    background-color: #FDCAE1;
+    color: #C999AF;
+}
+
+.artistCol button {
+    width: 100%;
+}
+
+.carrinho {
+    width: 100%;
+    padding: 40px;
+}
+
+.carrinho-inner {
+    width: 100%;
+    padding: 15px;
+    border-radius: 12px;
+    background-color: #fdcae127;
+}
+
+.imgArtista {
+    max-width: 100%;
+}
+
+.imgArtista img {
+    max-width: 100%;
+}
+
+.carrinho-inner th, .carrinho-inner td {
+    vertical-align: middle;
+}
+
+.btnExc {
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    border: none;
+    background-color: transparent;
+    color: #C999AF;
+    font-size: 22px;
+    transition: 0.4s;
+}
+
+.btnExc:hover {
+    color: #FF6961;
+}
