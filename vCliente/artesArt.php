@@ -88,5 +88,5 @@
 </section><!-- End Events Section -->
 
 <div class="botaoCom">
-    <button type="button" class="linkMenu" idMenu="addCom"> <! -- onclick="dataArtist(<?php  // echo $idVend; ?>);" --> Fazer uma comissão agora!</button>
+    <button type="button" class="linkMenu" idMenu="addCom" onclick="dataArtist(<?php echo $idVend; ?>);"> Fazer uma comissão agora!</button>
 </div>

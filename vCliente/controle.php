@@ -77,6 +77,7 @@ switch ($acao) {
         break;
 
 
+
     case 'artistaZashye':
         include_once './artistU/artistaZashye.php';
         $_SESSION['pages'] = $acao;
@@ -98,23 +99,45 @@ switch ($acao) {
         break;
 
 
+
     case 'artZashyeOC':
         include_once './artesU/artZashyeOC.php';
         $_SESSION['pages'] = $acao;
         break;
 
-    case 'artjov':
-        include_once './artesU/artistajov.php';
+
+    case 'artjovDio':
+        include_once './artesU/artjovDio.php';
+        $_SESSION['pages'] = $acao;
+        break;
+    case 'artjovHanako':
+        include_once './artesU/artjovHanako.php';
+        $_SESSION['pages'] = $acao;
+        break;
+    case 'artjovMiruko':
+        include_once './artesU/artjovMiruko.php';
         $_SESSION['pages'] = $acao;
         break;
 
-    case 'artfelpstired':
-        include_once './artesU/artistafelpstired.php';
+
+    case 'artfelpstiredFelps':
+        include_once './artesU/artfelpstiredFelps.php';
         $_SESSION['pages'] = $acao;
         break;
 
-    case 'artthwmoss':
-        include_once './artesU/artistathwmoss.php';
+
+    case 'artthwmossOC':
+        include_once './artesU/artthwmossOC.php';
+        $_SESSION['pages'] = $acao;
+        break;
+
+    case 'artthwmossfelps':
+        include_once './artesU/artthwmossfelps.php';
+        $_SESSION['pages'] = $acao;
+        break;
+
+    case 'artthwmossPaulo':
+        include_once './artesU/artthwmossPaulo.php';
         $_SESSION['pages'] = $acao;
         break;
 
@@ -127,6 +150,15 @@ switch ($acao) {
     case 'addCompra':
         if (isset($_SESSION['idUser'])) {
             include_once './pages/addCompra.php';
+        } else {
+            echo json_encode('Você não está logado!');
+            die();
+        }
+        break;
+
+    case 'addPedido':
+        if (isset($_SESSION['idUser'])) {
+            include_once './pages/addPedido.php';
         } else {
             echo json_encode('Você não está logado!');
             die();

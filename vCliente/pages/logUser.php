@@ -33,7 +33,7 @@ if ($checarCpf == 'false') {
 
 } else if ($checarCpf == 'OK') {
 
-    $listarID = listarRegistroU('tbusuario', 'idusuario', 'cpf', $cpf);
+    $listarID = listarRegistroU('tbusuario', 'idusuario, nome', 'cpf', $cpf);
 
     if ($listarID == 'Vazio') {
 
@@ -45,6 +45,7 @@ if ($checarCpf == 'false') {
         foreach ($listarID as $itemId) {
 
             $_SESSION['idUser'] = $itemId->idusuario;
+            $_SESSION['nomeUser'] = $itemId->nome;
 
         }
 

@@ -6,6 +6,12 @@ include_once './func/dashboard.php';
 
 unset($_SESSION['idUser']);
 
-echo json_encode('OK');
+if ($_SESSION['pages'] == 'listarCarrinho') {
+    echo json_encode('OKCart');
+    die();
+} else {
+    echo json_encode('OK');
+    die();
+}
 
 ?>

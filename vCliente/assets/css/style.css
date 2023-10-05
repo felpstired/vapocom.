@@ -651,10 +651,29 @@ li a {
 }
 
 .carrinho-inner {
-    width: 100%;
     padding: 15px;
     border-radius: 12px;
     background-color: #fdcae127;
+    height: 100%;
+}
+
+.carrinho-inner .card {
+    margin: 15px 0;
+}
+
+.card-body button {
+    font-size: 20px;
+    width: 100%;
+}
+
+.card-body img {
+    max-width: 100%;
+    height: auto;
+}
+
+.itemCart {
+    padding: 5px 10px;
+    border-radius: 12px;
 }
 
 .imgArtista {
@@ -682,4 +701,9 @@ li a {
 
 .btnExc:hover {
     color: #FF6961;
+}
+
+.statusLog {
+    margin: 0;
+    padding: 0;
 }

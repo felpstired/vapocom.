@@ -115,7 +115,21 @@
                     //                    Essa parte lida com as páginas individuais de cada arte
                     else if ($_SESSION['pages'] == 'artZashyeOC') {
                         include_once './artesU/artZashyeOC.php';
-                    }
+                    } else if ($_SESSION['pages'] == 'artjovDio') {
+                        include_once './artesU/artjovDio.php';
+                    } else if ($_SESSION['pages'] == 'artjovHanako') {
+                        include_once './artesU/artjovHanako.php';
+                    } else if ($_SESSION['pages'] == 'artjovMiruko') {
+                        include_once './artesU/artjovMiruko.php';
+                    } else if ($_SESSION['pages'] == 'artfelpstiredFelps') {
+                        include_once './artesU/artfelpstiredFelps.php';
+                    } else if ($_SESSION['pages'] == 'artthwmossOC') {
+                        include_once './artesU/artthwmossOC.php';
+                    } else if ($_SESSION['pages'] == 'artthwmossfelps') {
+                        include_once './artesU/artthwmossfelps.php';
+                    } else if ($_SESSION['pages'] == 'artthwmossPaulo') {
+                        include_once './artesU/artthwmossPaulo.php';
+                    } 
 
 
 

@@ -2752,7 +2752,7 @@ function insertDoisNum($tabela, $campos, $valeu1, $valeu2)
     $conn = conectar();
     try {
         $conn->beginTransaction();
-        $sqInsert = $conn->prepare("INSERT INTO $tabela($campos)VALUES(?,?)");
+        $sqInsert = $conn->prepare("INSERT INTO $tabela($campos)VALUES(?,?, NOW())");
         $sqInsert->bindValue(1, $valeu1, PDO::PARAM_INT);
         $sqInsert->bindValue(2, $valeu2, PDO::PARAM_INT);
         $sqInsert->execute();

@@ -154,7 +154,7 @@ function deslogBtn() {
     if (!sendDeslogUser) {
 
         Swal.fire({
-            title: 'Você tem certeza?',
+            title: "Você tem certeza?",
             text: "Essa ação irá te deslogar!",
             icon: 'warning',
             showCancelButton: true,
@@ -188,6 +188,19 @@ function deslogBtn() {
 
                             })
                             setTimeout(function () {
+                                window.location.reload();
+                            }, 1500);
+                        } else if (retorno === 'OKCart') {
+                            Swal.fire({
+                                title: 'Desconectado!',
+                                text: 'Você foi desconectado de nosso site.',
+                                icon: 'success',
+                                showConfirmButton: false,
+                                timer: 1500
+
+                            })
+                            setTimeout(function () {
+                                listarPage('listarHome');
                                 window.location.reload();
                             }, 1500);
                         } else {
@@ -277,7 +290,7 @@ function addUser() {
 }
 
 
-function addCompra() {
+function addPedidoCart() {
 
     $('#frmAddCompra').submit(function (event) {
         event.preventDefault();
@@ -286,6 +299,53 @@ function addCompra() {
 
         dadosForm.push(
             {name: 'acao', value: 'addCompra'},
+        )
+
+        // var dados = {
+        //     acao: 'addCliente',
+        // }
+
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: 'controle.php',
+            data: dadosForm,
+            beforeSend: function () {
+
+            },
+            success: function (retorno) {
+
+                console.log(retorno);
+
+                // if (retorno === 'OK') {
+                //     $('#modalAddCompra').modal('hide');
+                //     msgGeral('Cadastro efetuado com sucesso!', 'success');
+
+                //     setTimeout(function () {
+                //         window.location.reload();
+                //     }, 1500);
+                // } else {
+                //     msgGeral('ERRO: ' + retorno + ' Tente novamente mais tarde.', 'error');
+                // }
+
+            }
+
+        });
+
+    });
+
+}
+
+
+function addCompra() {
+
+    $('#frmAddPedido').submit(function (event) {
+        event.preventDefault();
+
+        let dadosForm = $(this).serializeArray();
+
+        dadosForm.push(
+            {name: 'acao', value: 'addPedido'},
         )
 
         // var dados = {
@@ -366,6 +426,7 @@ function addCarrinho(id) {
                     setTimeout(function () {
                         listarPage('listarCarrinho');
                     }, 1500);
+
                 } else {
                     msgGeral('ERRO: ' + retorno + ' Tente novamente mais tarde.', 'error');
                 }
@@ -385,6 +446,7 @@ function addCarrinho(id) {
     // }
 
 }
+
 
 
 function excCarrinho(id, qtdd) {
@@ -468,6 +530,48 @@ function logUser() {
 
         });
 
+    });
+
+}
+
+
+// funções de alterar
+
+function dataArtist(id) {
+
+    var dados = {
+        acao: 'dataArtista',
+        id: id,
+    };
+
+    $.ajax({
+        type: "POST",
+        dataType: 'json',
+        url: 'controle.php',
+        data: dados,
+        beforeSend: function () {
+
+        }, success: function (retorno) {
+
+            var status = retorno.status;
+
+            if (status === 'OK') {
+                $('#' + modal).modal('show');
+                $('input#nomeUsuarioAlt').val(retorno.dadosArray['nome']);
+                $('input#emailUsuarioAlt').val(retorno.dadosArray['email']);
+                $('input#cpfUsuarioAlt').val(retorno.dadosArray['cpf']);
+                $('input#senhaUsuarioAlt').val(retorno.dadosArray['senha']);
+                $('input#inputAltCliente').val(id);
+            } else {
+                Swal.fire({
+                    title: 'Erro!',
+                    text: retorno,
+                    icon: 'error',
+                    showConfirmButton: true,
+                })
+            }
+
+        }
     });
 
 }

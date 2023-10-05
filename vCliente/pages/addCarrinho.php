@@ -14,7 +14,7 @@ $listarCarrinho = listarRegistrosDoisInt('idcarrinho, qtdd', 'tbcarrinho', 'idus
 
 if (!$listarCarrinho) {
 
-    $insert = insertDoisNum('tbcarrinho', 'idusuario, idartesvend', $_SESSION['idUser'], $idArte);
+    $insert = insertDoisNum('tbcarrinho', 'idusuario, idartesvend, cadastro', $_SESSION['idUser'], $idArte);
 
 // echo json_encode($insert);
 

@@ -44,7 +44,7 @@
             <button type="button" class="btn text-white fw-bold fs-5" onclick="deslogBtn();"><span class="mdi mdi-logout"></span> Sair
             </button>ﾠ|ﾠ
             <button type="button" class="btn text-white fw-bold fs-5 linkMenu" idMenu="listarCarrinho">Carrinho
-              <span class="mdi mdi-cart-variant"></span></button>
+                <span class="mdi mdi-cart-variant"></span></button>
 
           <?php
 
@@ -52,7 +52,7 @@
 
           ?>
             <button type="button" class="btn text-white fw-bold fs-5" data-bs-toggle="modal" data-bs-target="#modalLogUser"><span class="mdi mdi-login"></span> Fazer Login
-            </button>|
+            </button>ﾠ|ﾠ
             <button type="button" class="btn text-white fw-bold fs-5" data-bs-toggle="modal" data-bs-target="#modalAddUser">Cadastrar <span class="mdi mdi-account-plus"></span></button>
 
           <?php
@@ -62,6 +62,25 @@
           ?>
 
         </div>
+
+        <?php
+
+          if (isset($_SESSION['idUser'])) {
+
+          ?>
+
+        <div class="statusLog">
+
+        <span class="mdi mdi-account"></span> Logado:ﾠ<?php echo $_SESSION['nomeUser']; ?>
+
+        </div>
+
+        <?php 
+        
+          }
+
+        ?>
+
       </div>
 
     </div>
