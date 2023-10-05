@@ -63,6 +63,7 @@
                             <td width="50%"><?php echo $descArte; ?></td>
                             <td width="10%">R$ <?php echo $valor; ?>,00</td>
                             <td width="5%"><button type="button" class="btnExc" onclick="excCarrinho(<?php echo $idcart; ?>, <?php echo $qtdd; ?>);"><span class="mdi mdi-close"></span></button></td>
+                            <td width="5%"><button type="button" class="btnExc" onclick="plusCart(<?php echo $idArte; ?>);"><span class="mdi mdi-plus"></span></button></td>
                         </tr>
 
 
@@ -157,19 +158,19 @@
                                 <label for="numCard">
                                     Número do Cartão:
                                 </label>
-                                <input type="text" name="numCard" id="numCard">
+                                <input type="text" name="numCard" id="numCard" placeholder="Insira o número...">
                             </div>
                             <div class="fazComCol2">
                                 <label for="numCardT">
                                     Número de Segurança:
                                 </label>
-                                <input type="text" name="numCardT" id="numCardT">
+                                <input type="text" name="numCardT" id="numCardT"  placeholder="Insira o número...">
                             </div>
                             <div class="fazComCol2">
                                 <label for="vencimento">
                                     Vencimento:
                                 </label>
-                                <input type="text" name="vencimento" id="vencimento">
+                                <input type="text" name="vencimento" id="vencimento" placeholder="MM/AAAA">
                             </div>
                         </div>
                     </div>

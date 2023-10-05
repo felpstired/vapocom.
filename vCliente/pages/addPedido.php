@@ -51,23 +51,43 @@ if ($tipopag == '2' OR $tipopag == '3') {
 
 }
 
-$listar = listarRegistroU('tbusuario', 'idusuario', 'cpf', $_SESSION['cpf']);
+if (is_numeric($idPag)) {
 
-foreach ($listar as $listarItem) {
-    $id = $listarItem->idusuario;
-}
+    $up = updateFoto('tbcarrinho', 'ativo', 'D', 'idusuario', $_SESSION['idUser']);
 
-$inserir = inserirRegistros('tbpedidos', 'idusuario, idvendedor, idpagamento, prodEsc, descricao', "$id, $idVend, $idPag, $prodEsc, $desc");
+    if ($up == 'Atualizado') {
+        echo json_encode('OK');
+        die();
+    } else if ($up == 'nAtualizado') {
+        echo json_encode('Não foi possível adicionar produto ao carrinho.');
+        die();
+    } else {
+        echo json_encode('Ocorreu um erro no servidor ao adicionar os produtos.');
+        die();
+    }
 
-if ($inserir) {
-    echo json_encode('OK');
-    die();
-} else if (!$inserir) {
-    echo json_encode('Não foi possível fazer cadastro do pedido.');
-    die();
 } else {
-    echo json_encode('Ocorreu um erro no servidor ao tentar cadastrar os dados.');
+    echo json_encode('Ocorreu um erro no servidor ao tentar cadastrar o pedido.');
     die();
 }
+
+//$listar = listarRegistroU('tbusuario', 'idusuario', 'cpf', $_SESSION['cpf']);
+//
+//foreach ($listar as $listarItem) {
+//    $id = $listarItem->idusuario;
+//}
+//
+//$inserir = inserirRegistros('tbpedidos', 'idusuario, idvendedor, idpagamento, prodEsc, descricao', "$id, $idVend, $idPag, $prodEsc, $desc");
+//
+//if ($inserir) {
+//    echo json_encode('OK');
+//    die();
+//} else if (!$inserir) {
+//    echo json_encode('Não foi possível fazer cadastro do pedido.');
+//    die();
+//} else {
+//    echo json_encode('Ocorreu um erro no servidor ao tentar cadastrar os dados.');
+//    die();
+//}
 
 ?>

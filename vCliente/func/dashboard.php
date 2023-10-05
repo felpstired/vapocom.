@@ -2101,6 +2101,7 @@ function listarCarrinho($id)
         INNER JOIN tbvendedor ON tbartesvend.idvendedor = tbvendedor.idvendedor
         INNER JOIN tbusuario ON tbvendedor.idusuario = tbusuario.idusuario
         WHERE tbcarrinho.idusuario = ?
+        AND tbcarrinho.ativo = 'A'
         ORDER BY tbcarrinho.idcarrinho ASC");
         $sqlLista->bindValue(1, $id, PDO::PARAM_INT);
         $sqlLista->execute();

@@ -61,6 +61,11 @@ function masks() {
     $('.maskCPF').inputmask({
         mask: '999.999.999-99'
     });
+
+    $('.maskDate').inputmask({
+        mask: '99/9999'
+    });
+
 }
 
 function listarPage(listar) {
@@ -292,13 +297,13 @@ function addUser() {
 
 function addPedidoCart() {
 
-    $('#frmAddCompra').submit(function (event) {
+    $('#frmAddPedido').submit(function (event) {
         event.preventDefault();
 
         let dadosForm = $(this).serializeArray();
 
         dadosForm.push(
-            {name: 'acao', value: 'addCompra'},
+            {name: 'acao', value: 'addPedido'},
         )
 
         // var dados = {
@@ -317,16 +322,16 @@ function addPedidoCart() {
 
                 console.log(retorno);
 
-                // if (retorno === 'OK') {
-                //     $('#modalAddCompra').modal('hide');
-                //     msgGeral('Cadastro efetuado com sucesso!', 'success');
+                if (retorno === 'OK') {
+                    $('#modalFinalizarPedido').modal('hide');
+                    msgGeral('Pedido efetuado com sucesso!', 'success');
 
-                //     setTimeout(function () {
-                //         window.location.reload();
-                //     }, 1500);
-                // } else {
-                //     msgGeral('ERRO: ' + retorno + ' Tente novamente mais tarde.', 'error');
-                // }
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 1500);
+                } else {
+                    msgGeral('ERRO: ' + retorno + ' Tente novamente mais tarde.', 'error');
+                }
 
             }
 
@@ -434,6 +439,64 @@ function addCarrinho(id) {
             }
 
         });
+
+    //     sendAddCart = true;
+    //
+    //     return;
+    //
+    // } else {
+    //
+    //     return;
+    //
+    // }
+
+}
+
+
+function plusCart(id) {
+
+    // console.log('botao');
+
+    // if (!sendAddCart) {
+
+    // $('#btnAddCart').click(function (event) {
+    //     event.preventDefault();
+
+    // dadosForm.push(
+    //     { name: 'acao', value: 'addCarrinho' },
+    //     { name: 'id', value: id },
+    // )
+
+    var dadosForm = {
+        acao: 'addCarrinho',
+        id: id,
+    }
+
+    // console.log(dadosForm);
+
+    $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        url: 'controle.php',
+        data: dadosForm,
+        beforeSend: function () {
+
+        },
+        success: function (retorno) {
+
+            // console.log(retorno);
+
+            if (retorno === 'OK') {
+
+                    listarPage('listarCarrinho');
+
+            } else {
+                msgGeral('ERRO: ' + retorno + ' Tente novamente mais tarde.', 'error');
+            }
+
+        }
+
+    });
 
     //     sendAddCart = true;
     //

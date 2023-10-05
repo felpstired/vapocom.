@@ -236,7 +236,7 @@ function inserirRegistrosReturnId($tabela, $campos, $valores)
 {
     $conn = conectar();
     try {
-        $sqlLista = $conn->prepare("INSERT INTO $tabela ($campos) VALUES ($valores, NOW())");
+        $sqlLista = $conn->prepare("INSERT INTO $tabela ($campos) VALUES ($valores)");
         $resul = $sqlLista->execute();
         if ($resul === false) {
             $conn->rollback();
