@@ -150,6 +150,25 @@ function listarRegistrosDoisInt($campos, $tabela, $par1, $val1, $par2, $val2)
     };
 }
 
+function listarRegistrosDoisIntA($campos, $tabela, $par1, $val1, $par2, $val2, $ativo)
+{
+    $conn = conectar();
+    try {
+        $sqlLista = $conn->prepare("SELECT $campos FROM $tabela WHERE $par1 = ? AND $par2 = ? AND ativo = ?");
+        $sqlLista->bindValue(1, $val1, PDO::PARAM_INT);
+        $sqlLista->bindValue(2, $val2, PDO::PARAM_INT);
+        $sqlLista->bindValue(3, $ativo, PDO::PARAM_STR);
+        $sqlLista->execute();
+        if ($sqlLista->rowCount() > 0) {
+            return $sqlLista->fetchAll(PDO::FETCH_OBJ);
+        } else {
+            return false;
+        };
+    } catch (PDOException $e) {
+        return 'Não foi possível acessar os dados. Erro: ' . $e->getMessage();
+    };
+}
+
 function listarRegistrosJoin($campos, $tabela, $join, $tabela2, $id, $ativo)
 {
     $conn = conectar();

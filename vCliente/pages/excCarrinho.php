@@ -11,7 +11,7 @@ $qtdd = $dados ['qtdd'];
 
 if ($qtdd == 1) {
 
-    $registroExcloi = deleteRegistro('tbcarrinho', 'idcarrinho', $id);
+    $registroExcloi = deleteRegistroA('tbcarrinho', 'idcarrinho', $id, 'A');
 
     if ($registroExcloi == 'Deletado') {
         echo json_encode('OK');
@@ -28,7 +28,7 @@ if ($qtdd == 1) {
 
     $novaQ = $qtdd - 1;
 
-    $upCart = updateInt('tbcarrinho', 'qtdd', $novaQ, 'idcarrinho', $id);
+    $upCart = updateIntA('tbcarrinho', 'qtdd', $novaQ, 'idcarrinho', $id, 'A');
 
     if ($upCart == 'Atualizado') {
         echo json_encode('OK');

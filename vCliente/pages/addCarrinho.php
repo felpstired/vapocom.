@@ -10,7 +10,7 @@ $idArte = $dados['id'];
 
 // echo json_encode($idArte);
 
-$listarCarrinho = listarRegistrosDoisInt('idcarrinho, qtdd', 'tbcarrinho', 'idusuario', $_SESSION['idUser'], 'idartesvend', $idArte);
+$listarCarrinho = listarRegistrosDoisIntA('idcarrinho, qtdd', 'tbcarrinho', 'idusuario', $_SESSION['idUser'], 'idartesvend', $idArte, 'A');
 
 if (!$listarCarrinho) {
 
@@ -36,7 +36,7 @@ if (!$listarCarrinho) {
 
     $novaQ = $qtdd + 1;
 
-    $upCart = updateInt('tbcarrinho', 'qtdd', $novaQ, 'idcarrinho', $idcart);
+    $upCart = updateIntA('tbcarrinho', 'qtdd', $novaQ, 'idcarrinho', $idcart, 'A');
 
     if ($upCart == 'Atualizado') {
         echo json_encode('OK');

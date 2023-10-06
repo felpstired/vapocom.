@@ -3422,6 +3422,31 @@ function updateInt($tabela, $campoAlt, $valorAlt, $campoRef, $valorRef)
     $conn = null;
 }
 
+function updateIntA($tabela, $campoAlt, $valorAlt, $campoRef, $valorRef, $ativo)
+{
+    $conn = conectar();
+    try {
+        $conn->beginTransaction();
+
+        $sqUpdate = $conn->prepare("UPDATE $tabela SET $campoAlt = ? WHERE $campoRef = ? AND ativo = ?");
+        $sqUpdate->bindValue(1, $valorAlt, PDO::PARAM_INT);
+        $sqUpdate->bindValue(2, $valorRef, PDO::PARAM_INT);
+        $sqUpdate->bindValue(3, $ativo, PDO::PARAM_STR);
+        $sqUpdate->execute();
+        $conn->commit();
+        if ($sqUpdate->rowCount() > 0) {
+            return 'Atualizado';
+        } else {
+            return 'nAtualizado';
+        };
+    } catch (PDOException $e) {
+        echo 'Exception -> ';
+        return ($e->getMessage());
+        $conn->rollback();
+    };
+    $conn = null;
+}
+
 //UPdate ADm
 function upAdmComSenha($idsis, $nome, $cpf, $nascimento, $email, $senha, $celular, $rua, $numero, $complemento, $bairro, $cidade, $estado, $pais, $cep)
 {
@@ -4066,6 +4091,30 @@ function deleteRegistro($tabela, $campoReferencia, $idparametro)
 
         $sqUpdate = $conn->prepare("DELETE FROM $tabela WHERE $campoReferencia = ?");
         $sqUpdate->bindValue(1, $idparametro, PDO::PARAM_INT);
+        $sqUpdate->execute();
+        $conn->commit();
+        if ($sqUpdate->rowCount() > 0) {
+            return 'Deletado';
+        } else {
+            return 'nDeletado';
+        };
+    } catch (PDOException $e) {
+        echo 'Exception -> ';
+        return ($e->getMessage());
+        $conn->rollback();
+    };
+    $conn = null;
+}
+
+function deleteRegistroA($tabela, $campoReferencia, $idparametro, $ativo)
+{
+    $conn = conectar();
+    try {
+        $conn->beginTransaction();
+
+        $sqUpdate = $conn->prepare("DELETE FROM $tabela WHERE $campoReferencia = ? AND ativo = ?");
+        $sqUpdate->bindValue(1, $idparametro, PDO::PARAM_INT);
+        $sqUpdate->bindValue(2, $ativo, PDO::PARAM_STR);
         $sqUpdate->execute();
         $conn->commit();
         if ($sqUpdate->rowCount() > 0) {

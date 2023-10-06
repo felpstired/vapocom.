@@ -1,7 +1,7 @@
 -- MySQL Administrator dump 1.4
 --
 -- ------------------------------------------------------
--- Server version	5.5.5-10.4.28-MariaDB
+-- Server version	5.5.5-10.4.27-MariaDB
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -20,6 +20,31 @@
 
 CREATE DATABASE IF NOT EXISTS dbcadastro;
 USE dbcadastro;
+
+--
+-- Definition of table `tbartesart`
+--
+
+DROP TABLE IF EXISTS `tbartesart`;
+CREATE TABLE `tbartesart` (
+  `idartesArt` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `idvendedor` int(10) unsigned NOT NULL,
+  `imgArte` varchar(50) NOT NULL,
+  `titulo` varchar(240) NOT NULL,
+  `descArte` longtext NOT NULL,
+  `ativo` char(1) NOT NULL DEFAULT 'A',
+  PRIMARY KEY (`idartesArt`,`idvendedor`) USING BTREE,
+  KEY `FK_tbartesart_tbvendedor` (`idvendedor`),
+  CONSTRAINT `FK_tbartesart_tbvendedor` FOREIGN KEY (`idvendedor`) REFERENCES `tbvendedor` (`idvendedor`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbartesart`
+--
+
+/*!40000 ALTER TABLE `tbartesart` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tbartesart` ENABLE KEYS */;
+
 
 --
 -- Definition of table `tbartesvend`
@@ -75,7 +100,7 @@ CREATE TABLE `tbcarrinho` (
   KEY `FK_tbcarrinho_tbartesvend` (`idartesvend`),
   CONSTRAINT `FK_tbcarrinho_tbartesvend` FOREIGN KEY (`idartesvend`) REFERENCES `tbartesvend` (`idartesvend`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_tbcarrinho_tbusuario` FOREIGN KEY (`idusuario`) REFERENCES `tbusuario` (`idusuario`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbcarrinho`
@@ -84,7 +109,13 @@ CREATE TABLE `tbcarrinho` (
 /*!40000 ALTER TABLE `tbcarrinho` DISABLE KEYS */;
 INSERT INTO `tbcarrinho` (`idcarrinho`,`idusuario`,`idartesvend`,`ativo`,`qtdd`,`cadastro`,`alteracao`) VALUES 
  (8,2,3,'A',1,NULL,'2023-10-05 16:11:00'),
- (40,4,1,'A',1,'2023-10-05 16:32:01','2023-10-05 16:32:01');
+ (46,4,3,'D',2,'2023-10-05 17:39:27','2023-10-05 19:51:21'),
+ (49,4,7,'D',5,'2023-10-05 19:46:57','2023-10-05 19:47:18'),
+ (51,4,2,'D',1,'2023-10-05 20:08:59','2023-10-05 20:09:27'),
+ (53,4,4,'D',1,'2023-10-05 20:09:56','2023-10-05 20:10:04'),
+ (54,4,4,'D',10,'2023-10-05 20:10:14','2023-10-05 20:10:23'),
+ (55,4,3,'A',1,'2023-10-05 20:12:34','2023-10-05 20:12:34'),
+ (56,4,2,'A',1,'2023-10-05 20:12:42','2023-10-05 20:12:42');
 /*!40000 ALTER TABLE `tbcarrinho` ENABLE KEYS */;
 
 
@@ -104,7 +135,7 @@ CREATE TABLE `tbpagamento` (
   PRIMARY KEY (`idpagamento`,`idtipopag`) USING BTREE,
   KEY `FK_tbpagamento_1` (`idtipopag`),
   CONSTRAINT `FK_tbpagamento_1` FOREIGN KEY (`idtipopag`) REFERENCES `tbtipopag` (`idtipopag`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbpagamento`
@@ -113,7 +144,14 @@ CREATE TABLE `tbpagamento` (
 /*!40000 ALTER TABLE `tbpagamento` DISABLE KEYS */;
 INSERT INTO `tbpagamento` (`idpagamento`,`idtipopag`,`valor`,`numCard`,`numCardT`,`vencimento`,`ativo`) VALUES 
  (1,3,50,NULL,NULL,NULL,'A'),
- (2,1,68,NULL,NULL,NULL,'A');
+ (2,1,68,NULL,NULL,NULL,'A'),
+ (3,1,35,NULL,NULL,NULL,'A'),
+ (4,1,35,NULL,NULL,NULL,'A'),
+ (5,1,35,NULL,NULL,NULL,'A'),
+ (6,1,170,NULL,NULL,NULL,'A'),
+ (7,1,76,NULL,NULL,NULL,'A'),
+ (8,1,46,NULL,NULL,NULL,'A'),
+ (9,1,460,NULL,NULL,NULL,'A');
 /*!40000 ALTER TABLE `tbpagamento` ENABLE KEYS */;
 
 
